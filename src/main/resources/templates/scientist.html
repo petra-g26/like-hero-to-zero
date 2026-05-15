@@ -42,6 +42,38 @@
     </div>
 </nav>
 <div class="container mt-5 mb-5">
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card shadow text-center p-4 border-success">
+                <h5>
+                    Datensätze
+                </h5>
+                <h2 th:text="${count}">
+                    0
+                </h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow text-center p-4 border-success">
+                <h5>
+                    Durchschnitt CO₂
+                </h5>
+                <h2 th:text="${average}">
+                    0
+                </h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow text-center p-4 border-success">
+                <h5>
+                    Höchster Wert
+                </h5>
+                <h2 th:text="${max}">
+                    0
+                </h2>
+            </div>
+        </div>
+    </div>
     <h1 class="mb-4">
         Wissenschaftlerbereich
     </h1>
@@ -49,6 +81,10 @@
         Hier können zukünftig neue CO₂-Daten
         hinzugefügt oder bearbeitet werden.
     </p>
+    <div th:if="${errorMessage}"
+         class="alert alert-danger">
+        <span th:text="${errorMessage}"></span>
+    </div>
     <div th:if="${successMessage}"
          class="alert alert-success">
         <span th:text="${successMessage}"></span>
