@@ -4,5 +4,9 @@ import de.petragawellek.likeherotozero.model.EmissionRecord;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface EmissionRecordRepository
-        extends JpaRepository<EmissionRecord, Long> {
+        extends JpaRepository<
+        EmissionRecord, Long> {
+    EmissionRecord findTopByCountryOrderByYearDesc(
+            String country
+    );
 }

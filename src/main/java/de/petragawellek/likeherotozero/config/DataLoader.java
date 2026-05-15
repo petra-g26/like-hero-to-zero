@@ -1,5 +1,4 @@
 package de.petragawellek.likeherotozero.config;
-import de.petragawellek.likeherotozero.repository.EmissionRepository;
 import de.petragawellek.likeherotozero.model.Country;
 import de.petragawellek.likeherotozero.repository.CountryRepository;
 import de.petragawellek.likeherotozero.model.EmissionRecord;
