@@ -24,6 +24,14 @@ public class ScientistController {
         model.addAttribute("count", emissions.size());
         model.addAttribute("average", average);
         model.addAttribute("max", max);
+        List<String> countries = emissions.stream()
+                .map(EmissionData::getCountry)
+                .toList();
+        List<Double> co2Values = emissions.stream()
+                .map(EmissionData::getCo2)
+                .toList();
+        model.addAttribute("countries", countries);
+        model.addAttribute("co2Values", co2Values);
         return "scientist";
     }
     @PostMapping("/scientist")
@@ -55,6 +63,16 @@ public class ScientistController {
         model.addAttribute("count", emissions.size());
         model.addAttribute("average", average);
         model.addAttribute("max", max);
+        List<String> countries = emissions.stream()
+                .map(EmissionData::getCountry)
+                .toList();
+
+        List<Double> co2Values = emissions.stream()
+                .map(EmissionData::getCo2)
+                .toList();
+
+        model.addAttribute("countries", countries);
+        model.addAttribute("co2Values", co2Values);
         return "scientist";
     }
 }

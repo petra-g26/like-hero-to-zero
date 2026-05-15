@@ -174,8 +174,48 @@
         </tbody>
     </table>
 </div>
+<div class="card shadow mt-5 p-4">
+    <h3 class="mb-4">
+        CO₂-Analyse
+    </h3>
+    <canvas id="co2Chart"></canvas>
+</div>
+<footer class="bg-success text-white text-center p-3 mt-5">
+
+    Like Hero To Zero © 2026 |
+    Fallstudie Programmieren von industriellen Informationssystemen
+
+</footer>
 <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script th:inline="javascript">
+    const countries =
+        [[${countries}]];
+    const co2Values =
+        [[${co2Values}]];
+    const ctx =
+        document.getElementById('co2Chart');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: countries,
+            datasets: [{
+                label: 'CO₂-Ausstoß',
+                data: co2Values,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
 </script>
 </body>
 </html>
