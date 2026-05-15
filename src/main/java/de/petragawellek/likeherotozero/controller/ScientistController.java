@@ -21,6 +21,10 @@ public class ScientistController {
         List<EmissionRecord> emissions =
                 repository.findAll();
         model.addAttribute("emissions", emissions);
+        model.addAttribute(
+                "recordCount",
+                emissions.size()
+        );
         double average = emissions.stream()
                 .mapToDouble(EmissionRecord::getCo2)
                 .average()
