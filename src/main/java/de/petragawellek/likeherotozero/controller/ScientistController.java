@@ -1,5 +1,4 @@
 package de.petragawellek.likeherotozero.controller;
-import de.petragawellek.likeherotozero.model.EmissionData;
 import de.petragawellek.likeherotozero.model.EmissionRecord;
 import de.petragawellek.likeherotozero.repository.EmissionRecordRepository;
 import org.springframework.stereotype.Controller;
@@ -16,26 +15,28 @@ public class ScientistController {
             EmissionRecordRepository repository) {
         this.repository = repository;
     }
-    private final List<EmissionData> emissions = new ArrayList<>();
+    private final List<EmissionRecord> emissions = new ArrayList<>();
     @GetMapping("/scientist")
         public String scientistPage(Model model) {
+        List<EmissionRecord> emissions =
+                repository.findAll();
         model.addAttribute("emissions", emissions);
         double average = emissions.stream()
-                .mapToDouble(EmissionData::getCo2)
+                .mapToDouble(EmissionRecord::getCo2)
                 .average()
                 .orElse(0);
         double max = emissions.stream()
-                .mapToDouble(EmissionData::getCo2)
+                .mapToDouble(EmissionRecord::getCo2)
                 .max()
                 .orElse(0);
         model.addAttribute("count", emissions.size());
         model.addAttribute("average", average);
         model.addAttribute("max", max);
         List<String> countries = emissions.stream()
-                .map(EmissionData::getCountry)
+                .map(EmissionRecord::getCountry)
                 .toList();
         List<Double> co2Values = emissions.stream()
-                .map(EmissionData::getCo2)
+                .map(EmissionRecord::getCo2)
                 .toList();
         model.addAttribute("countries", countries);
         model.addAttribute("co2Values", co2Values);
@@ -55,15 +56,15 @@ public class ScientistController {
         EmissionRecord record =
                 new EmissionRecord(country, year, co2);
         repository.save(record);
-        EmissionData data =
-                new EmissionData(country, year, co2);
+        EmissionRecord data =
+                new EmissionRecord(country, year, co2);
         emissions.add(data);
         double average = emissions.stream()
-                        .mapToDouble(EmissionData::getCo2)
+                        .mapToDouble(EmissionRecord::getCo2)
                                 .average()
                                         .orElse(0);
         double max = emissions.stream()
-                        .mapToDouble(EmissionData::getCo2)
+                        .mapToDouble(EmissionRecord::getCo2)
                                 .max()
                                         .orElse(0);
         model.addAttribute(
@@ -74,11 +75,11 @@ public class ScientistController {
         model.addAttribute("average", average);
         model.addAttribute("max", max);
         List<String> countries = emissions.stream()
-                .map(EmissionData::getCountry)
+                .map(EmissionRecord::getCountry)
                 .toList();
 
         List<Double> co2Values = emissions.stream()
-                .map(EmissionData::getCo2)
+                .map(EmissionRecord::getCo2)
                 .toList();
 
         model.addAttribute("countries", countries);
