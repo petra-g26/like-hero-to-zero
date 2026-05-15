@@ -1,4 +1,5 @@
 package de.petragawellek.likeherotozero.controller;
+import jakarta.servlet.http.HttpSession;
 import de.petragawellek.likeherotozero.model.EmissionRecord;
 import de.petragawellek.likeherotozero.repository.EmissionRecordRepository;
 import org.springframework.stereotype.Controller;
@@ -17,7 +18,10 @@ public class ScientistController {
     }
     private final List<EmissionRecord> emissions = new ArrayList<>();
     @GetMapping("/scientist")
-        public String scientistPage(Model model) {
+        public String scientistPage(Model model, HttpSession session) {
+        if (session.getAttribute("loggedIn") == null){
+            return "redirect:/login";
+        }
         List<EmissionRecord> emissions =
                 repository.findAll();
         model.addAttribute("emissions", emissions);
