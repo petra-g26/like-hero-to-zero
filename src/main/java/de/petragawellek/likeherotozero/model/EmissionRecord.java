@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Column;
 
 @Entity
 public class EmissionRecord {
@@ -11,6 +12,7 @@ public class EmissionRecord {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String country;
+    @Column(name = "emission_year")
     private Integer year;
     private Double co2;
     public EmissionRecord() {

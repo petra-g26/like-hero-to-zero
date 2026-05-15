@@ -1,5 +1,7 @@
 package de.petragawellek.likeherotozero.controller;
 import de.petragawellek.likeherotozero.model.EmissionData;
+import de.petragawellek.likeherotozero.model.EmissionRecord;
+import de.petragawellek.likeherotozero.repository.EmissionRecordRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 @Controller
 public class ScientistController {
+    private final EmissionRecordRepository repository;
+    public ScientistController(
+            EmissionRecordRepository repository) {
+        this.repository = repository;
+    }
     private final List<EmissionData> emissions = new ArrayList<>();
     @GetMapping("/scientist")
         public String scientistPage(Model model) {
@@ -45,6 +52,9 @@ public class ScientistController {
             model.addAttribute("emissions", emissions);
             return "scientist";
         }
+        EmissionRecord record =
+                new EmissionRecord(country, year, co2);
+        repository.save(record);
         EmissionData data =
                 new EmissionData(country, year, co2);
         emissions.add(data);
