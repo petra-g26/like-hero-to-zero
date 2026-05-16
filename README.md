@@ -2,13 +2,12 @@
 
 ## Projektbeschreibung
 
-„Like Hero To Zero“ ist eine Webanwendung zur Darstellung weltweiter CO₂-Emissionsdaten.
-Das Projekt wurde im Rahmen der Fallstudie „Programmieren von industriellen Informationssystemen“ entwickelt.
+„Like Hero To Zero“ ist eine Webanwendung zur Darstellung von weltweiten CO₂-Emissionsdaten.
+Das Projekt wurde im Rahmen der Fallstudie „Programmieren von industriellen Informationssystemen“ für den Bachelorstudiengang Wirtschaftsinformatik entwickelt.
 
-Die Anwendung ermöglicht Bürger:innen den öffentlichen Zugriff auf aktuelle CO₂-Daten verschiedener Länder. Zusätzlich steht registrierten Wissenschaftler:innen ein geschützter Backend-Bereich zur Verfügung, in dem neue Datensätze ergänzt oder bestehende Daten korrigiert werden können.
+Die Anwendung ermöglicht Bürger und Bürgerinnen den öffentlichen Zugriff auf die aktuellen CO₂-Daten verschiedener Länder. Zusätzlich steht für registrierte Wissenschaftler und Wissenschaftlerinnen ein geschützter Bereich zur Verfügung, in dem neue Datensätze ergänzt werden können.
 
 ---
-
 ## Funktionen
 
 ### Öffentlicher Bereich
@@ -23,11 +22,8 @@ Die Anwendung ermöglicht Bürger:innen den öffentlichen Zugriff auf aktuelle C
 
 * Login für Wissenschaftler:innen
 * Hinzufügen neuer CO₂-Datensätze
-* Korrigieren bestehender Daten
 * Persistente Speicherung in relationaler Datenbank
-
 ---
-
 ## Verwendete Technologien
 
 * Java 21
@@ -41,14 +37,16 @@ Die Anwendung ermöglicht Bürger:innen den öffentlichen Zugriff auf aktuelle C
 * Chart.js
 
 ---
-
 ## Softwarearchitektur
 
 Das Projekt basiert auf dem MVC-Architekturmuster:
 
-* **Model:** Entity-Klassen (`EmissionRecord`, `Country`)
-* **View:** Thymeleaf-Templates (`index.html`, `scientist.html`, usw.)
-* **Controller:** Spring Boot Controller (`HomeController`, `ScientistController`, usw.)
+* **Model:**
+  Entity-Klassen (`EmissionRecord`, `Country`)
+* **View:**
+  Thymeleaf-Templates (`index.html`, `scientist.html`, usw.)
+* **Controller:**
+  Spring Boot Controller (`HomeController`, `ScientistController`, usw.)
 
 Die Datenhaltung erfolgt über Spring Data JPA und Hibernate.
 
@@ -56,7 +54,7 @@ Die Datenhaltung erfolgt über Spring Data JPA und Hibernate.
 
 ## Datenquelle
 
-Die verwendeten CO₂-Daten basieren auf öffentlich verfügbaren Datensätzen der World Bank / Rearc:
+Die verwendeten CO₂-Daten basieren auf öffentlich verfügbaren Datensätzen der World Bank und wurden als Verlinkung zur Verfügung gestellt:
 
 Rearc (2022). *CO2 Emissions (kt) | World Bank Open Data*.
 https://aws.amazon.com/marketplace/pp/prodview-qf3r4b6jpivte
@@ -89,6 +87,6 @@ Petra Gawellek
 
 ## Fallstudie
 
-Dieses Projekt entstand im Rahmen der Hochschule/Fallstudie:
+Dieses Projekt entstand im Rahmen der IU-Hochschule / Fallstudie:
 
 **Programmieren von industriellen Informationssystemen**
