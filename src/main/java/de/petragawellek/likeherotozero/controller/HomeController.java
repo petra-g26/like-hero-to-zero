@@ -43,7 +43,7 @@ private final CountryRepository countryRepository;
         }
         model.addAttribute(
                 "countries",
-                countryRepository.findAll()
+                emissionRepository.findDistinctCountries()
         );
         return "index";
     }

@@ -75,8 +75,8 @@
                                                 Bitte auswählen
                                         </option>
                                         <option th:each="country : ${countries}"
-                                                th:value="${country.name}"
-                                                th:text="${country.name}">
+                                                th:value="${country}"
+                                                th:text="${country}">
                                         </option>
                                 </select>
                         </div>
@@ -109,7 +109,7 @@
                 <ul class="list-group mt-3">
                         <li class="list-group-item"
                             th:each="country : ${countries}">
-                                <span th:text="${country.name}"></span>
+                                <span th:text="${country}"></span>
                         </li>
 
                 </ul>
