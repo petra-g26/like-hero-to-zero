@@ -1,4 +1,4 @@
-# Like Hero To Zero 🌍
+# Like Hero To Zero
 
 ## Projektbeschreibung
 
